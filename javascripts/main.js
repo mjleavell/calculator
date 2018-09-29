@@ -1,23 +1,6 @@
-const printToDom = (stringToPrint, elementId) => {
-    const selectedDiv = document.getElementById(elementId);
-    selectedDiv.innerHTML = stringToPrint;
-};
-
-const multiply = (n1, n2) => {
-    return n1 * n2;
-};
-
-const divide = (n1, n2) => {
-    return n1 / n2;
-}
-
-const add = (n1, n2) => {
-    return n1 + n2;
-}
-
-const subtract = (n1, n2) => {
-    return n1 - n2;
-}
+// import SOMETHING from 'SOMEWHERE';
+import {printToDom} from './helpers/util.js';
+import {multiply, divide, add, subtract} from './helpers/maths.js';
 
 const calculate = (num1, num2, mathType) => {
     let answer = 0;
@@ -40,4 +23,4 @@ const calculate = (num1, num2, mathType) => {
     printToDom(answer, 'result');
 };
 
-calculate(16, 18, 'subtract'); //8
+calculate(16, 18, 'divide'); 
