@@ -5,4 +5,4 @@ const printToDom = (stringToPrint, elementId) => {
 
 // object shorthand is when key=value
 // export default printToDom
-export {printToDom}
+export {printToDom};
