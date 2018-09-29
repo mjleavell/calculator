@@ -10,20 +10,20 @@ const calc = {
     display: ''
 }
 
-const calculate = (num1, num2, mathType) => {
+const calculate = () => {
     let answer = 0;
-    switch (mathType) {         // could use if/else but here is it using switch statement for practice
+    switch (calc.mathType) {         // could use if/else but here is it using switch statement for practice
         case 'multiply':
-            answer = multiply(num1, num2);
+            answer = multiply(calc.firstNumber, calc.secondNumber);
             break;              //break ensures you dont keep going through the switch statement
         case 'divide':
-            answer = divide(num1, num2);
+            answer = divide(calc.firstNumber, calc.secondNumber);
             break;
         case 'add':
-            answer = add(num1, num2);
+            answer = add(calc.firstNumber, calc.secondNumber);
             break;
         case 'subtract':
-            answer = subtract(num1, num2);
+            answer = subtract(calc.firstNumber, calc.secondNumber);
             break;
         default:
             answer = 'nope';
@@ -45,7 +45,7 @@ const initialDisplay = () => {
     printToDom(0, 'result');
 }
 
-// display 1st number & 2nd number in result div 
+// display 1st number and set to variable; when math type is clicked then 2nd number is displayed and set to var
 const addNumber = (num) => {
     if (calc.mathType === '') {
         calc.firstNumber += num;
