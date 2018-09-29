@@ -2,6 +2,14 @@
 import {printToDom} from '../helpers/util.js';
 import {multiply, divide, add, subtract} from '../helpers/maths.js';
 
+// values need to be strings because innerHTML returns strings
+const calc = {  
+    firstNumber: '',
+    secondNumber: '',
+    mathType: '',
+    display: ''
+}
+
 const calculate = (num1, num2, mathType) => {
     let answer = 0;
     switch (mathType) {         // could use if/else but here is it using switch statement for practice
@@ -20,7 +28,28 @@ const calculate = (num1, num2, mathType) => {
         default:
             answer = 'nope';
     }
-    printToDom(answer, 'result');
+    setDisplay(answer);
 };
 
-export {calculate};
+// updates results div on page
+const setDisplay = (someNumber) => {
+    calc.display = someNumber;
+    printToDom(calc.display, 'result');
+}
+
+const initialDisplay = () => {
+    printToDom(0, 'result');
+}
+
+// display 1st number & 2nd number in result div 
+const addNumber = (num) => {
+    if (calc.mathType === '') {
+        calc.firstNumber += num;
+        setDisplay(calc.firstNumber);
+    } else {
+        calc.secondNumber += num;
+        setDisplay(calc.secondNumber);
+    }
+}
+
+export {addNumber, initialDisplay};
